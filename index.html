@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD API</title>
+</head>
+<body>
+    <button onclick="getUsers()">Afficher les utilisateurs</button>
+    <button onclick="addUser()">Ajouter un utilisateur</button>
+    <button onclick="updateUser()">Mettre à jour un utilisateur</button>
+    <button onclick="deleteUser()">Supprimer un utilisateur</button>
+    <pre id="output"></pre>
+    
+    <script>
+        const apiUrl = "http://localhost/api.php/users";
+
+        function getUsers() {
+            fetch(apiUrl)
+                .then(res => res.json())
+                .then(data => document.getElementById("output").textContent = JSON.stringify(data, null, 2));
+        }
+
+        function addUser() {
+            fetch(apiUrl, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name: "John Doe", email: "john@example.com", password: "123456" })
+            }).then(res => res.json()).then(data => alert(data.message));
+        }
+
+        function updateUser() {
+            fetch(apiUrl, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name: "John Updated", email: "john@example.com", password: "newpass" })
+            }).then(res => res.json()).then(data => alert(data.message));
+        }
+
+        function deleteUser() {
+            fetch(apiUrl + "/john@example.com", { method: "DELETE" })
+                .then(res => res.json())
+                .then(data => alert(data.message));
+        }
+    </script>
+</body>
+</html>
