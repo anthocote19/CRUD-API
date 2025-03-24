@@ -3,7 +3,7 @@
 readme_content = """\
 #  Simple CRUD API with PHP & JavaScript Frontend
 
-## 📖 Description
+##  Description
 
 This project is a **CRUD API built with PHP**, allowing user management with a **JavaScript frontend**.
 
