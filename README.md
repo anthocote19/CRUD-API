@@ -1,6 +1,3 @@
-# Création du contenu du fichier README.md
-
-readme_content = """\
 #  Simple CRUD API with PHP & JavaScript Frontend
 
 ##  Description
