@@ -11,7 +11,7 @@ This project is a **CRUD API built with PHP**, allowing user management with a *
 -  **PUT /users** → Update an existing user
 -  **DELETE /users/{email}** → Delete a user by email
 
----
+--- 
 
 ##  Requirements
 
